@@ -238,10 +238,13 @@ bot = InventoryBot()
 
 @bot.event
 async def on_ready():
-    init_db()
-    reset_if_needed()
     print(f"Logged in as {bot.user}")
 
+    try:
+        synced = await bot.tree.sync()
+        print(f"Synced {len(synced)} commands")
+    except Exception as e:
+        print(e)
 @bot.tree.command(name="find", description="Find which accounts have an item")
 @app_commands.describe(item="Example: Kitsune, Dragon East, Galaxy Kitsune")
 async def find(interaction: discord.Interaction, item: str):
