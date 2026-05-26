@@ -462,7 +462,7 @@ async def daily(interaction: discord.Interaction):
     embed = make_embed("📊 Today's Business Report", f"Trades used today: **{trades}**", COLOR_INFO)
 
     if not rows:
-        embed.description += "
+        embed.description += "\n"
 No sales/restocks logged today."
         return await interaction.response.send_message(embed=embed)
 
