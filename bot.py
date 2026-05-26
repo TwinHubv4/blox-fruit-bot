@@ -240,6 +240,7 @@ bot = InventoryBot()
 async def on_ready():
     init_db()
     reset_if_needed()
+    print("PREMIUM PANEL BOT LOADED")
     print(f"Logged in as {bot.user}")
 
 @bot.tree.command(name="find", description="Find which accounts have an item")
